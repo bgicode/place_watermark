@@ -27,9 +27,9 @@ if ($_POST['submit_btn']) {
         imagecopy($imgWhiteBg, $img, 0, 0, 0, 0, $widthImg, $heightImg);
 
         if ($widthImg >= $heightImg) {
-            $wMark = resizeImgProp($wMarkOriginal, $heightImg * 0.4);
+            $wMark = resizeImgProp($wMarkOriginal, $heightImg * 0.3);
         } elseif ($widthImg <= $heightImg) {
-            $wMark = resizeImgProp($wMarkOriginal, $widthImg * 0.4);
+            $wMark = resizeImgProp($wMarkOriginal, $widthImg * 0.3);
         }
 
         imagesavealpha($imgWhiteBg, true);
@@ -43,7 +43,7 @@ if ($_POST['submit_btn']) {
 
         imagejpeg($imgWhiteBg, $imgUrljpg);
         imagedestroy($imgWhiteBg);
-        $_SESSION['ulrJpg'] = $imgUrljpg;
+        $_SESSION['img']['ulrJpg'] = $imgUrljpg;
 
         if (getimagesizefromstring($dounloadImgString)['mime'] != 'image/gif') {
 
@@ -52,10 +52,10 @@ if ($_POST['submit_btn']) {
             $imgUrlWebp = "uploads/$fileName" . "_" . $timestap . ".webp";
             imagewebp($imgNewSize, $imgUrlWebp);
             imagedestroy($imgNewSize);
-            $_SESSION['notGif'] = true;
-            $_SESSION['ulrWebp'] = $imgUrlWebp;
+            $_SESSION['img']['notGif'] = true;
+            $_SESSION['img']['ulrWebp'] = $imgUrlWebp;
         } else {
-            $_SESSION['notGif'] = false;
+            $_SESSION['img']['notGif'] = false;
         }
 
         redirect('result.php');

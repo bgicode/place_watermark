@@ -1,1 +1,5 @@
-uploads/*
+uploads/*.gif
+uploads/*.webp
+uploads/*.png
+uploads/*.jpg
+uploads/*.jpeg

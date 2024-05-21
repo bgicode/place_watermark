@@ -25,14 +25,14 @@ session_start();
     </head>
     <body>
         <div class="resultWrap">
-            <img src="<?= $_SESSION['ulrJpg'] ?>" alt="">
+            <img src="<?= $_SESSION['img']['ulrJpg'] ?>" alt="">
             <div>
-                <a href="<?= $_SESSION['ulrJpg'] ?>"><?= basename($_SESSION['ulrJpg']) ?></a>
+                <a href="<?= $_SESSION['img']['ulrJpg'] ?>"><?= basename($_SESSION['img']['ulrJpg']) ?></a>
             </div>
             <div>
                 <?php
-                    if ($_SESSION['notGif']) {
-                        echo '<a href="' . $_SESSION['ulrWebp'] . '">' . basename($_SESSION['ulrWebp']) . '</a>';
+                    if ($_SESSION['img']['notGif']) {
+                        echo '<a href="' . $_SESSION['img']['ulrWebp'] . '">' . basename($_SESSION['img']['ulrWebp']) . '</a>';
                     } else {
                         echo '<span>Для данного расширения перевод в формат WEBP невозможен</span>';
                     }
