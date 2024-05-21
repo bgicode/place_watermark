@@ -1,5 +1,5 @@
 <?php
-// declare(strict_types = 1);
+declare(strict_types = 1);
 
 session_start();
 
@@ -15,11 +15,10 @@ if ($_POST['submit_btn']) {
 
         $wMarkOriginal = imagecreatefromjpeg('waterMark.jpg');
 
-
         $img = imagecreatefromstring($dounloadImgString);
 
-        $widthImg = imagesx($img);
-        $heightImg = imagesy($img);
+        $widthImg = (int)imagesx($img);
+        $heightImg = (int)imagesy($img);
 
         $imgWhiteBg = imagecreatetruecolor($widthImg, $heightImg);
         $white = imagecolorallocate($imgWhiteBg, 255, 255, 255); 
@@ -35,29 +34,31 @@ if ($_POST['submit_btn']) {
         imagesavealpha($imgWhiteBg, true);
         $transparencyp = 60;
         $transparency = 127 - $transparencyp * 127 / 100;
-        imagecopymerge($imgWhiteBg, $wMark, $widthImg - imagesx($wMark), $heightImg - imagesy($wMark), 0 ,0, imagesx($wMark), imagesy($wMark), $transparency);
+        imagecopymerge($imgWhiteBg, $wMark, $widthImg - (int)imagesx($wMark), $heightImg - (int)imagesy($wMark), 0 ,0, (int)imagesx($wMark), (int)imagesy($wMark), (int)$transparency);
 
         $timestap = time();
-
         $imgUrljpg = "uploads/$fileName" . "_" . $timestap . ".jpg";
-
         imagejpeg($imgWhiteBg, $imgUrljpg);
-        imagedestroy($imgWhiteBg);
         $_SESSION['img']['ulrJpg'] = $imgUrljpg;
 
         if (getimagesizefromstring($dounloadImgString)['mime'] != 'image/gif') {
-
             $imgNewSize = resizeImgProp($imgWhiteBg, 300);
 
             $imgUrlWebp = "uploads/$fileName" . "_" . $timestap . ".webp";
+
             imagewebp($imgNewSize, $imgUrlWebp);
             imagedestroy($imgNewSize);
+            
             $_SESSION['img']['notGif'] = true;
             $_SESSION['img']['ulrWebp'] = $imgUrlWebp;
         } else {
             $_SESSION['img']['notGif'] = false;
         }
-
+        imagedestroy($imgNewSize);
+        imagedestroy($img);
+        imagedestroy($imgWhiteBg);
+        imagedestroy($wMarkOriginal);
+        imagedestroy($wMark);
         redirect('result.php');
         exit;
     }

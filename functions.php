@@ -8,7 +8,7 @@ function redirect(string $extra): void
     header("Location: http://$host$uri/$extra");
 }
 
-function resizeImgProp($gdImage, $newMaxSize)
+function resizeImgProp(object $gdImage, mixed $newMaxSize): object
 {
     $oldWidth = imagesx($gdImage);
     $oldHeight = imagesy($gdImage);

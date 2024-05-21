@@ -90,9 +90,35 @@ form {
 }
 
 img {
-    max-width: 100%;
+    margin-top: 20px;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
+.resultWrap *{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: 10px
+}
+
+a, .resultWrap {
+    color: rgb(72, 94, 119);
+}
+
+a:hover {
+    color: rgb(255, 131, 30)
+}
+
+a:visited {
+    color: rgb(211, 127, 0);
+}
+
+a:visited:hover {
+    color: rgb(255, 131, 30);
+}
 /* input[type =file] {
     display: none;
 } */
