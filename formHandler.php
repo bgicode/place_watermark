@@ -32,18 +32,6 @@ if ($_POST['submit_btn']) {
             $wMark = resizeImgProp($wMarkOriginal, $widthImg * 0.4);
         }
 
-        // $widthMark = $widthImg * 0.2;
-        // $heightMark = imagesy($wMarkOriginal) * ($widthMark / imagesx($wMarkOriginal));
-
-
-
-        // $wMark = imagecreatetruecolor($widthMark, $heightMark);
-        // imagecopyresampled($wMark, $wMarkOriginal, 0, 0, 0, 0, $widthMark, $heightMark, imagesx($wMarkOriginal), imagesy($wMarkOriginal));
-
-        // $wMark = resizeImg($wMarkOriginal, $widthMark, $heightMark);
-        
-
-
         imagesavealpha($imgWhiteBg, true);
         $transparencyp = 60;
         $transparency = 127 - $transparencyp * 127 / 100;
@@ -53,18 +41,12 @@ if ($_POST['submit_btn']) {
 
         $imgUrljpg = "uploads/$fileName" . "_" . $timestap . ".jpg";
 
-
-
-
-
         imagejpeg($imgWhiteBg, $imgUrljpg);
         imagedestroy($imgWhiteBg);
         $_SESSION['ulrJpg'] = $imgUrljpg;
 
         if (getimagesizefromstring($dounloadImgString)['mime'] != 'image/gif') {
 
-            // $arProportions = getSize($img, 300);
-            // $imgNewSize = resizeImg($img, $arProportions[0], $arProportions[1]);
             $imgNewSize = resizeImgProp($imgWhiteBg, 300);
 
             $imgUrlWebp = "uploads/$fileName" . "_" . $timestap . ".webp";
@@ -76,14 +58,7 @@ if ($_POST['submit_btn']) {
             $_SESSION['notGif'] = false;
         }
 
-        
-            // $isImage = true;
         redirect('result.php');
         exit;
-
     }
-
-    // $_SESSION['text'] = trim($_POST['text']);
-
-    // $isImage = true;
 }
