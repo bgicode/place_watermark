@@ -164,3 +164,7 @@ form li, div > p, li > p {
     width: 0px;
     margin-bottom: 10px;
 }
+
+.notWebp {
+    color: rgb(158, 29, 72);
+}

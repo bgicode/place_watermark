@@ -52,7 +52,6 @@ if ($_POST['submit_btn']) {
         } else {
             $_SESSION['img']['notGif'] = false;
         }
-        imagedestroy($imgNewSize);
         imagedestroy($img);
         imagedestroy($imgWhiteBg);
         imagedestroy($wMarkOriginal);
