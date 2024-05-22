@@ -18,8 +18,8 @@ include_once('formHandler.php');
                 <form class="form" name="waterMark" method="POST" action="<?php $_SERVER['REQUEST_URI'] ?>" enctype="multipart/form-data">
 
                     <div>
-                        <label for="image_uploads">Выбрать изображение (PNG, JPG, GIF)</label>
-                        <input type="file" class="imgFile" id="image_uploads" name="imgFile" accept=".jpg, .jpeg, .png, .gif" required>
+                        <label for="imageUploads">Выбрать изображение (PNG, JPG, GIF)</label>
+                        <input type="file" class="imgFile" id="imageUploads" name="imgFile" accept=".jpg, .jpeg, .png, .gif" required>
                     </div>
                     <div class="preview">
                         <p>Файл не выбран</p>
