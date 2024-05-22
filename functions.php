@@ -1,6 +1,6 @@
 <?php
 
-function redirect(string $extra): void
+function redirect($extra)
 {
     $host = $_SERVER['HTTP_HOST'];
     $uri = rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
@@ -8,7 +8,7 @@ function redirect(string $extra): void
     header("Location: http://$host$uri/$extra");
 }
 
-function resizeImgProp(object $gdImage, mixed $newMaxSize): object
+function resizeImgProp($gdImage, $newMaxSize)
 {
     $oldWidth = imagesx($gdImage);
     $oldHeight = imagesy($gdImage);

@@ -10,15 +10,21 @@ include_once('formHandler.php');
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
         <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="./script.js" type="text/javascript"></script>
     </head>
     <body>
         <div class="wrap">
             <div class="formWraper">
                 <form class="form" name="waterMark" method="POST" action="<?php $_SERVER['REQUEST_URI'] ?>" enctype="multipart/form-data">
-                    <label class="">
-                        <input name="imgFile" type="file" required></input>
-                        <!-- <span>Выберите файл</span> -->
-                    </label>
+
+                    <div>
+                        <label for="image_uploads">Выбрать изображение (PNG, JPG, GIF)</label>
+                        <input type="file" class="imgFile" id="image_uploads" name="imgFile" accept=".jpg, .jpeg, .png, .gif" required>
+                    </div>
+                    <div class="preview">
+                        <p>Файл не выбран</p>
+                    </div>
+
                     <div class="btnWrap">
                         <input class="submitBtn" type="submit" name="submit_btn" value="Загрузить">
                     </div>

@@ -119,6 +119,48 @@ a:visited {
 a:visited:hover {
     color: rgb(255, 131, 30);
 }
-/* input[type =file] {
-    display: none;
-} */
+
+form p {
+    line-height: 32px;
+    padding-left: 10px;
+}
+
+form label {
+    background-color: rgb(211, 127, 0);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    height: auto;
+}
+
+form label:hover {
+    background-color: rgb(255, 131, 30);
+    color: white;
+}
+  
+form label:active, form button:active {
+    background-color: rgb(255, 172, 104);
+    color: white;
+}
+
+form ol {
+    padding-left: 0;
+}
+
+form li, div > p, li > p {
+    background: #eee;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    list-style-type: none;
+    color: rgb(72, 94, 119);
+    line-height: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin: 0;
+}
+
+.imgFile {
+    width: 0px;
+    margin-bottom: 10px;
+}
