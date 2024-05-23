@@ -5,7 +5,7 @@ window.onload = function()
 
     input.style.opacity = 0;
     
-    let fileTypes = ["image/jpeg", "image/pjpeg", "image/png"];
+    let fileTypes = ["image/jpeg", "image/pjpeg", "image/png", "image/gif"];
 
     function validFileType(file)
     {
