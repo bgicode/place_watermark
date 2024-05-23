@@ -1,4 +1,6 @@
 <?php
+setlocale(LC_ALL, 'ru_RU.utf8');
+
 session_start();
 
 include_once('functions.php');
@@ -8,6 +10,10 @@ if ($_POST['submit_btn']) {
     if (isset($_FILES['imgFile'])) {
 
         $fileName = pathinfo($_FILES['imgFile']['name'], PATHINFO_FILENAME );
+
+        if(preg_match("/[А-Яа-я]/", $fileName)) {
+            $fileName = rusTranslit($fileName);
+        }
 
         $dounloadImgString = file_get_contents($_FILES['imgFile']['tmp_name']);
 
